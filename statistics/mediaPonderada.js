@@ -1,4 +1,4 @@
-const semestre = [
+const asignaturas = [
     finanzas = {
         nota: 45,
         porcentaje: 10
@@ -17,10 +17,26 @@ const semestre = [
     }
 ]
 
-function calcularMediaPonderada(arr) {
-    arr.forEach(element => {
-        return element[0] * element[1]
-    });
+const notasPonderadas = (arr) => arr.map(function(obj) {
+    return obj.nota * obj.porcentaje
+}); 
+
+const calcularMediaPonderada = (arr) => {
+    let suma = notasPonderadas(arr).reduce((accumulator, currentValue) => accumulator + currentValue)
+    let totalCreditos = sumarCreditos(arr)
+    return suma / totalCreditos
 }
 
-console.log(calcularMediaPonderada(semetre))
+const sumarCreditos = (arr) => {
+    let listaCreditos = arr.map((obj) => obj.porcentaje)
+    let totalCreditos = listaCreditos.reduce((x, y) => x + y)
+    return totalCreditos
+}
+
+console.log(calcularMediaPonderada(asignaturas))
+
+// Otra opción para calcular la suma de porcentajes
+// let creditos = 0;
+// for (let ramo in asignaturas) {
+//     creditos += asignaturas[ramo].porcentaje;
+// } console.log(creditos)
