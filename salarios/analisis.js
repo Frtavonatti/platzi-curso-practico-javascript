@@ -4,6 +4,7 @@ console.log(salariosColombia)
 
 const sortArray = (arr) => arr.sort((x, y) => x - y)
 const salariosColOrdenados = sortArray(salariosColombia)
+console.log(salariosColOrdenados)
 
 const esPar = (num) => (num % 2 === 0)
 
